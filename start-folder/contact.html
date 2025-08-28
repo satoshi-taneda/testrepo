@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>私のポートフォリオ</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <header>
+    <h1>私のポートフォリオ</h1>
+    <nav>
+      <ul>
+        <li><a href="../index.html">ホーム</a></li>
+        <li><a href="./contact.html">お問い合わせ</a></li>
+        <li><a href="./task.html">課題</a></li>
+        <li><a href="./calculator.html">電卓</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <article>
+        <h2>お問い合わせはこちら</h2>
+        <form action="#" method="post">
+          <dl>
+            <dt>名前:</dt>
+            <dd>
+              <input type="text" name="name" placeholder="例: 田中太郎" required>
+            </dd>
+            <dt>メールアドレス:</dt>
+            <dd>
+              <input type="email" name="email" placeholder="例: example@example.com" required>
+            </dd>
+            <dt>目的:</dt>
+            <dd>
+              <select name="purpose">
+                <option value="unselected">未選択</option>
+                <option value="recruit">リクルート</option>
+                <option value="question">質問</option>
+                <option value="job_request">仕事依頼</option>
+              </select>
+            </dd>
+            <dt>内容:</dt>
+            <dd>
+              <textarea name="message" rows="10" cols="68"></textarea>
+            </dd>
+            <input class="myButton" type="submit" value="送信">
+          </dl>
+        </form>
+      </article>
+    </section>
+  </main>
+  <footer>
+    <small>&copy; 2025 私のポートフォリオ</small>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,143 @@
+body {
+  font-family: "Arial", sans-serif;
+  background: #f9f9f9;
+}
+h3 {
+  border-bottom: 1px solid black;
+}
+header {
+  color: white;
+  background-color: navy;
+  box-shadow: 6px 6px 30px lightblue;
+  border-radius: 9px;
+  text-align: center;
+  padding: 5px;
+}
+nav {
+  box-shadow: 1px 1px 9px lightblue;
+  width: 760px;
+  margin: auto;
+}
+nav ul li {
+  font-size: 18px;
+  display: inline;
+  margin: 48px;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+
+main {
+  text-align: center;
+}
+
+img {
+  border: 1.5px solid gray;
+  border-radius: 90px;
+}
+
+form {
+  width: 750px;
+  padding: 5px;
+  margin: auto;
+  border: 2px solid gray;
+  box-shadow: 3px 3px 9px gray;
+  text-align: left;
+}
+input {
+  width: 350px;
+  font-size: 1rem;
+}
+textarea {
+  font-size: 1rem;
+}
+
+select {
+  font-size: 1rem;
+}
+
+#skill {
+  text-align: center;
+  padding: 15px;
+  margin: auto;
+}
+
+#portfolio {
+  padding: 15px;
+  margin: auto;
+}
+
+.myButton {
+  padding: 15px;
+  margin: 15px 195px;
+  color: white;
+  font-size: 1.2rem;
+  background-color: #007bff;
+  box-shadow: 1px 1px 3px gray;
+  cursor: pointer;
+}
+
+.item1 {
+  width: 400px;
+  padding: 5px;
+  margin: auto;
+  color: white;
+  background-color: #E65127;
+  box-shadow: 3px 3px 15px gray;
+  border-radius: 6px;
+  border: 1px solid red;
+}
+.item2 {
+  width: 400px;
+  padding: 5px;
+  margin: auto;
+  color: white;
+  background-color: #0C73B8;
+  box-shadow: 3px 3px 15px gray;
+  border-radius: 6px;
+  border: 1px solid blue;
+}
+.item3 {
+  width: 400px;
+  padding: 5px;
+  margin: auto;
+  color: white;
+  background-color: #EBA32A;
+  box-shadow: 3px 3px 15px gray;
+  border-radius: 6px;
+  border: 1px solid gold;
+}
+
+.container_p {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 1280px;
+  height: 240px;
+  border-radius: 6px;
+  box-shadow: 3px 3px 15px gray;
+  background-image: url("../images/sample-04.png");
+  background-size: cover;
+  margin: auto;
+  background-color: beige;
+}
+
+.container_p > .item_p {
+  flex: 0 0 210px;
+  border-radius: 6px;
+  background-color: white;
+  box-shadow: 3px 3px 15px gray;
+  height: 180px;
+  margin: 15px;
+  cursor: pointer;
+}
+
+footer {
+  color: white;
+  background-color: darkblue;
+  text-align: center;
+  padding: 3px;
+  margin: 15px;
+}
