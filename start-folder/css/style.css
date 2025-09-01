@@ -2,8 +2,11 @@ body {
   font-family: "Arial", sans-serif;
   background: #f9f9f9;
 }
-h3 {
+h2 {
   border-bottom: 1px solid black;
+}
+h3 {
+  text-align: center;
 }
 header {
   color: white;
@@ -41,15 +44,21 @@ form {
   box-shadow: 3px 3px 9px gray;
   text-align: left;
 }
+#calcForm {
+  text-align: center;
+  border-radius: 15px;
+}
 input {
   width: 350px;
   font-size: 1rem;
+  margin: 5px;
 }
 textarea {
   font-size: 1rem;
 }
 select {
   font-size: 1rem;
+  margin: 5px;
 }
 #skill {
   text-align: center;

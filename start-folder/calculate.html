@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>私のポートフォリオ</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <header>
+    <h1>私のポートフォリオ</h1>
+    <nav>
+      <ul>
+        <li><a href="../index.html">ホーム</a></li>
+        <li><a href="./contact.html">お問い合わせ</a></li>
+        <li><a href="./work.html">課題</a></li>
+        <li><a href="./calculate.html">電卓</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>電卓</h2>
+      <form id="calcForm">
+        <h3>2つの数値を入力し演算子を選択してください</h3>
+        <dl>
+          <dt>値1</dt>
+          <dd><input type="number" id="val1Txt"></dd>
+          <dt>値2</dt>
+          <dd><input type="number" id="val2Txt"></dd>
+          <dt>演算子</dt>
+          <dd>
+            <select id="operator">
+              <option value="addition">足し算</option>
+              <option value="subtraction">引き算</option>
+              <option value="multiplication">掛け算</option>
+              <option value="division">割り算</option>
+            </select>
+          </dd>
+        </dl>
+        <p id="formula">ここに計算式が表示されます</p>
+        <p id="result">ここに計算結果が表示されます</p>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <small>&copy; 2025 私のポートフォリオ</small>
+  </footer>
+  <script src="./calculate.js"></script>
+</body>
+</html>
