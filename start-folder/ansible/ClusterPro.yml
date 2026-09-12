@@ -1,0 +1,44 @@
+
+
+GATEWAYS:
+  - NAME: "group1"                                                                                                                                    
+    MANAGEMENT_GW: "192.168.0.252"
+    BACKUP_GW: "192.168.1.252"
+    GYOMU_GW: "192.168.2.252"
+    DB_GW: "192.168.3.252"
+
+
+{% set ips = ['MANAGEMENT_IP', 'BACKUP_IP', 'GYOMU_IP', 'DB_IP'] %}
+{% set paths = ['DEVICE_PATH'] %}
+{% set ips_count = ips | length %}
+{# set paths_count = paths | length #}
+{% for ip in ips %}
+{% set i = loop.index0 %}
+clpcfadm.py add hb lankhb {{ i }} {{ i }}
+{% for SERVER in SERVERS %}
+clpcfadm.py add device {{ SERVER.NAME }} lan {{ i }} {{ SERVER[ip] }}
+{% endfor %}
+{% endfor %}
+{% for path in paths %}
+{% set i = ips_count + loop.index0 %}
+clpcfadm.py add hb lankhb {{ i }} {{ i }}
+{% for SERVER in SERVERS %}
+clpcfadm.py add device {{ SERVER.NAME }} lan {{ i }} {{ SERVER[path] }}
+{% endfor %}
+{% endfor %}
+
+
+
+{% set gws_group = [['MANAGEMENT_GW', 'BACKUP_GW', 'GYOMU_GW', 'DB_GW']] %}
+{% for gws in gws_group %}
+{% set group_id = loop.index0 %}
+{% set gws_count = gws | length %}
+{% for gw in gws %}
+{% set i = loop.index0 %}
+{% set device_id = group_id * gws_count + i %}
+clpcfset add np pingnp {{ device_id }} {{ device_id }} {{ group_id }} {{ i }} {{ GATEWAYS[group_id][gw] }}
+{% for SERVER in SERVERS %}
+clpcfadm.py add device {{ SERVER.NAME }} ping {{ device_id }} {{ SERVER.PING_NP_ENABLED }}
+{% endfor %}
+{% endfor %}
+{% endfor %}
