@@ -1,6 +1,6 @@
-========================================
-Target Server Information
-========================================
+##########################################
+# target server information
+##########################################
 
 Hostname     : {{ ansible_hostname }}
 OS           : {{ ansible_distribution }}
@@ -17,8 +17,11 @@ package_manager=apt
 {% else %}
 package_manager=unknown
 {% endif %}
-
 Administrator: {{ administrator | default("未設定") }}
+
+##########################################
+# test
+##########################################
 
 {% set ips = ['MANAGEMENT_IP', 'BACKUP_IP', 'GYOMU_IP', 'DB_IP'] %}
 {% set paths = ['DEVICE_PATH'] %}
@@ -53,6 +56,42 @@ clpcfadm.py add device {{ SERVER.NAME }} ping {{ device_id }} {{ SERVER.PING_NP_
 {% endfor %}
 {% endfor %}
 {% endfor %}
+
+
+##########################################
+# サーバグループ追加
+##########################################
+{#  サーバグループは使わない
+{% for SG in SERVERGROUP %}
+clpcfadm.py mod -t servergroup@{{ SG.NAME }}/comment --set "{{ SG.COMMENT }}" --nocheck
+{% for ID in SG.SERVER_ID %}
+clpcfadm.py mod -t servergroup@{{ SG.NAME }}/policy@{{ SERVERS[ID].NAME }}/order --set {{ loop.index0 }} --nocheck
+{% endfor %}
+{% endfor %}
+#}
+
+
+##########################################
+# フェイルオーバ属性(拡張)
+##########################################
+
+clpcfadm.py mod -t group@failover1/autonomic/blacklist/use --set {{ VAR_failover_group_autonomic_blacklist_use }}
+{% if VAR_failover_group_autonomic_blacklist_use == 1 %}
+clpcfadm.py mod -t group@failover1/autonomic/functype/blacklist/target --set {{ FUNCTYPES | join(',') }}
+clpcfadm.py mod -t group@failover1/autonomic/forcefo/use --set {{ VAR_failover_group_autonomic_forceto_use }}
+{% endif %}
+
+clpcfadm.py mod -t group@failover1/autonomic/functype/blacklist/targetgrp@0/rsc@{{ VAR_failover_group_functype_name }} --set "" --nocheck
+clpcfadm.py mod -t group@failover1/failback --set {{ VAR_failover_group_failback }}
+
+
+
+
+
+
+
+
+
 
 
 
