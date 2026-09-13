@@ -1,0 +1,6 @@
+---
+- name: Jinja2 template test
+  hosts: targets
+
+  roles:
+    - test

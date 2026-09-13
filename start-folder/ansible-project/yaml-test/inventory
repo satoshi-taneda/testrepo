@@ -1,0 +1,2 @@
+[targets]
+192.168.64.6 ansible_user=taneda ansible_ssh_private_key_file=~/.ssh/ubuntu_target

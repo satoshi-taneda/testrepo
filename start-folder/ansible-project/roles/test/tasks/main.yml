@@ -1,0 +1,5 @@
+---
+- name: Deploy template
+  ansible.builtin.template:
+    src: server_info.conf.j2
+    dest: /tmp/server_info.conf

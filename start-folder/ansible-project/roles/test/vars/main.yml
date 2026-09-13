@@ -1,0 +1,25 @@
+---
+SERVERS:
+  - NAME: "server1"
+    MANAGEMENT_IP: "192.168.0.1"
+    BACKUP_IP: "192.168.1.1"
+    GYOMU_IP: "192.168.2.1"
+    DB_IP: "192.168.3.1"
+    DEVICE_PATH: "dev/sdm1"
+    PING_NP_ENABLED: 1
+
+  - NAME: "server2"
+    MANAGEMENT_IP: "192.168.0.2"
+    BACKUP_IP: "192.168.1.2"
+    GYOMU_IP: "192.168.2.2"
+    DB_IP: "192.168.3.2"
+    DEVICE_PATH: "dev/sdm2"
+    PING_NP_ENABLED: 1
+
+GATEWAYS:
+  - NAME: "group1"
+    MANAGEMENT_GW: "192.168.0.252"
+    BACKUP_GW: "192.168.1.252"
+    GYOMU_GW: "192.168.2.252"
+    DB_GW: "192.168.3.252"
+...

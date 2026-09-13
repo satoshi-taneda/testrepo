@@ -1,0 +1,16 @@
+{
+  "name": "yaml-test",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^7"
+  },
+  "dependencies": {
+    "yaml": "^2.9.0",
+    "yml": "^1.0.0"
+  }
+}

@@ -1,12 +1,24 @@
+========================================
+Target Server Information
+========================================
 
+Hostname     : {{ ansible_hostname }}
+OS           : {{ ansible_distribution }}
+Version      : {{ ansible_distribution_version }}
+IPv4         : {{ ansible_default_ipv4.address }}
+Architecture : {{ ansible_architecture }}
 
-GATEWAYS:
-  - NAME: "group1"                                                                                                                                    
-    MANAGEMENT_GW: "192.168.0.252"
-    BACKUP_GW: "192.168.1.252"
-    GYOMU_GW: "192.168.2.252"
-    DB_GW: "192.168.3.252"
+[Package Manager]
 
+{% if ansible_distribution == "RedHat" %}
+package_manager=yum
+{% elif ansible_distribution == "Ubuntu" %}
+package_manager=apt
+{% else %}
+package_manager=unknown
+{% endif %}
+
+Administrator: {{ administrator | default("未設定") }}
 
 {% set ips = ['MANAGEMENT_IP', 'BACKUP_IP', 'GYOMU_IP', 'DB_IP'] %}
 {% set paths = ['DEVICE_PATH'] %}
@@ -28,7 +40,6 @@ clpcfadm.py add device {{ SERVER.NAME }} lan {{ i }} {{ SERVER[path] }}
 {% endfor %}
 
 
-
 {% set gws_group = [['MANAGEMENT_GW', 'BACKUP_GW', 'GYOMU_GW', 'DB_GW']] %}
 {% for gws in gws_group %}
 {% set group_id = loop.index0 %}
@@ -42,3 +53,9 @@ clpcfadm.py add device {{ SERVER.NAME }} ping {{ device_id }} {{ SERVER.PING_NP_
 {% endfor %}
 {% endfor %}
 {% endfor %}
+
+
+
+
+
+

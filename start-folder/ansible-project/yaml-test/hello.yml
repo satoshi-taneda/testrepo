@@ -1,0 +1,6 @@
+- name: Hello from bun
+  hosts: targets
+  gather_facts: false
+  tasks:
+    - name: Get hostname
+      ansible.builtin.command: hostname
